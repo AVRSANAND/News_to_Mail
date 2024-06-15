@@ -6,7 +6,8 @@ topic = input("Enter a topic for the articles")
 
 url = (f"https://newsapi.org/v2/everything?q={topic}&"
        "sortBy=popularity&"
-       "apiKey=354d2a166c8d479bac7be4dafb38c860")
+       "apiKey=354d2a166c8d479bac7be4dafb38c860&"
+       "language=en")
 
 # Make request
 request = requests.get(url)
@@ -21,7 +22,10 @@ articles_num = int(input("How many articles do you want ?"))
 for article in content["articles"]:
     if count < articles_num:
         if (article["title"] != "[Removed]") and (article["title"] is not None):
-            body = body + article["title"] + "\n" + article["description"] + 2*"\n"
+            body = (body + article["title"] + "\n"
+                    + article["description"] + "\n" + article["url"] + 2*"\n")
+            body = "Subject: Today's News" \
+            + "\n" + body
         else:
             continue
         count += 1
