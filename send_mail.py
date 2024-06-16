@@ -6,7 +6,8 @@ def send_email(message):
     port = 465
 
     username = "knightkingram007@gmail.com"
-    password = "dladnbtwqagaggkd"
+    # Create your Google App password 
+    password = ""
     receiver = "knightkingram007@gmail.com"
     context = ssl.create_default_context()
 
