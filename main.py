@@ -1,13 +1,16 @@
 import requests
 from send_mail import send_email
-api_key = "354d2a166c8d479bac7be4dafb38c860"
+
+# Get api_key from Newsapi.org and paste it inside quotes
+api_key = "" 
 
 topic = input("Enter a topic for the articles - ")
 
 url = (f"https://newsapi.org/v2/everything?q={topic}&"
        "sortBy=publishedBy&"
-       "apiKey=354d2a166c8d479bac7be4dafb38c860&"
+       f"apiKey={api_key}&"
        "language=en")
+
 
 # Make request
 request = requests.get(url)
